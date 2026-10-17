@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammar-Store Hack - PS4 Menu</title>
+    <style>
+        html, body {
+            background-image: url('img.jpg');
+            /* FIXED SINGLE SHEET BACKDROP STRETCH SETUP */
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #121214;
+            color: white;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+            /* FIXED: Completely locked scrolling to fix everything on one screen layout */
+            overflow-y: hidden; 
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* UPGRADED: Shrunk to clear up major space for your button grid layout grid rows */
+        .scorp-header-box {
+            position: relative;
+            margin-top: 1vh;     /* Reduced from 6vh to save top whitespace gap */
+            margin-bottom: 0.5vh; /* Reduced from 2vh */
+            padding: 6px 20px;   /* Thinned outer borders */
+            background: rgba(15, 10, 20, 0.85);
+            border-radius: 10px;
+            display: inline-block;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(15,10,20,0.9), rgba(15,10,20,0.9)), 
+                              linear-gradient(90deg, #bd00ff, #ff007c, transparent, #bd00ff);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-size: 200% 100%;
+            animation: purpleSpark 3s linear infinite;
+            box-shadow: 0 0 15px rgba(189, 0, 255, 0.25);
+        }
+
+        /* Compact Header Sizing */
+        .scorp-header {
+            font-size: 3vh; /* Scaled down slightly to maximize button space */
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            margin: 0;
+            text-shadow: 0 0 10px #bd00ff, 0 0 20px #ff007c;
+        }
+
+        /* Loops the laser light coordinate positions over time */
+        @keyframes purpleSpark {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 200% 0%; }
+        }
+
+        /* High-End Glowing Credits Style */
+        .scorp-credits {
+            font-size: 14px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 8px #00ffcc, 0 0 15px #00ffcc, 0 0 25px #00ffcc;
+            display: inline-block;
+            width: 100%;
+        }
+
+        /* MODIFIED: Electric Cyber Cyan Theme to match your counter text style */
+        /* MODIFIED: Bigger, Chunky Cyber Cyan Buttons */
+.scorp-btn {
+    display: inline-block;
+    text-decoration: none;
+    background: rgba(10, 15, 20, 0.85); 
+    color: #ffffff;
+    font-size: 15px;           /* INCREASED: From 11px to 15px for great readability */
+    font-weight: bold;
+    letter-spacing: 1px;       /* INCREASED: Spaced out letters for a cleaner UI look */
+    padding: 12px 24px;        /* INCREASED: From 6px 14px to give buttons a thick, premium feel */
+    margin: 6px;               /* INCREASED: From 3px so big buttons don't clip into each other */
+    border: 2px solid #00f0ff; 
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    min-width: 180px;          /* INCREASED: From 150px so text won't cramp up */
+}
+        /* MODIFIED HOVER: Instantly flashes into an intense Emerald Matrix Green Glow */
+        .scorp-btn:hover {
+            background: #00ff66;  /* Bright emerald green background fill */
+            color: #000000;       /* Dark text for perfect readability on bright green */
+            box-shadow: 0 0 20px #00ff66, 0 0 40px #00ff00; /* Intense green flash glow */
+            text-shadow: none;
+            transform: translateY(-1px);
+            animation: shake 0.5s infinite;
+        }
+
+        /* Special Colored Categories Headers */
+        .scorp-cat-title {
+            font-size: 14px;       /* Sleek font reduction */
+            font-weight: bold;
+            color: #ffcc00;
+            margin-top: 4px;       /* Tightened category header gap spaces */
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 3px black;
+            letter-spacing: 1px;
+        }
+
+        @keyframes shake {
+            0% { transform: translateY(-1px) translateX(0); }
+            20% { transform: translateY(-1px) translateX(-1px); }
+            40% { transform: translateY(-1px) translateX(1px); }
+            60% { transform: translateY(-1px) translateX(-1px); }
+            80% { transform: translateY(-1px) translateX(1px); }
+            100% { transform: translateY(-1px) translateX(0); }
+        }
+
+        #clock {
+            float: right;
+            margin-right: 2.25%;
+            margin-top: 5px;       /* Pulled system widgets up closely */
+            font-weight: bold;
+            font-size: 24px;       /* Slightly cleaner sizing */
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        #date {
+            float: left;
+            margin-left: 1.25%;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        #msgs {
+            font-size: 16px;       /* Adjusted to maximize spacing layout footprint room */
+            font-weight: bold;
+            color: #00ff66;        /* Swapped text center label message color to matching green */
+            margin-top: 4px;       /* Dropped down layout bounds from 15px to 4px */
+            min-height: 20px;
+            text-shadow: 1px 1px 3px black;
+        }
+
+        /* FIXED: Pulled structural row wrappers much closer vertically */
+        .menu-section {
+            background: transparent;
+            border-radius: 10px;
+            padding: 2px;          /* Dropped cell padding down from 12px to 2px */
+            margin: 2px auto;      /* Reduced spacing margin footprint gaps from 15px to 2px */
+            max-width: 95%;        /* Expanded row horizontally to catch wrapping links better */
+            border: none; 
+        }
+
+        /* Master wrapper container sizing */
+        .dashboard-scrollbox {
+            max-height: 75vh;      /* Increased frame ceiling room to utilize screen grid spacing */
+            overflow-y: hidden;    /* Replaced auto tracking loop to completely hide the scrollbar */
+            margin: 0 auto;
+            padding-bottom: 5px;
+        }
+        
+        /* Smooth Custom Scrollbar styles preserved if fallback occurs */
+        .dashboard-scrollbox::-webkit-scrollbar {
+            width: 0px;            /* Turned completely invisible for the full fullscreen layout aesthetic */
+        }
+        .dashboard-scrollbox::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+        }
+        .dashboard-scrollbox::-webkit-scrollbar-thumb {
+            background: #bd00ff;
+            border-radius: 4px;
+            box-shadow: 0 0 8px #bd00ff;
+        }
+                /* SPECIAL CLASS: Golden/Amber Style for the most important button */
+                /* GOLDEN HOVER: Explodes into a bright flaming gold matrix burst */
+        .scorp-goldhen-btn:hover {
+            background: #ffaa00 !important;   
+            color: #000000 !important;        
+            box-shadow: 0 0 25px #ffaa00, 0 0 50px #ff5500 !important; 
+            text-shadow: none !important;
+            transform: translateY(-1px);
+            animation: shake 0.5s infinite;
+        }
+
+        /* 🟢 MOVES ALL YOUR BUTTONS TO THE DEAD MIDDLE OF THE PAGE */
+        .menu-section {
+            background: transparent;
+            border-radius: 10px;
+            padding: 2px;          
+            margin: 10px auto !important; /* Centers the whole container block */
+            max-width: 95%;        
+            border: none; 
+            text-align: center !important; /* Locks all internal layout buttons dead center */
+        }
+
+        /* 🟢 LAYOUT DESIGN: Green rectangle box with big yellow glowing numbers pinned to bottom middle */
+        .scorp-visit-box {
+            position: absolute !important; 
+            bottom: 30px !important;      /* Balanced distance right above the home bar */
+            left: 50% !important; 
+            transform: translateX(-50%) !important; 
+            text-align: center !important; 
+            white-space: nowrap !important; 
+            z-index: 10000 !important;
+        }
+
+        /* TOTAL VISITS green rectangle style box container */
+        .scorp-visit-label {
+            font-size: 14px !important; 
+            color: #00ff66 !important;              /* Matrix Green */
+            font-weight: bold !important; 
+            letter-spacing: 0.5px !important; 
+            text-transform: uppercase !important;
+            padding: 4px 8px !important;            /* Inner rectangle room */
+            border: 1px solid #00ff66 !important;   /* Small rectangle border lines */
+            border-radius: 4px !important;          
+            background: rgba(0, 0, 0, 0.5) !important; 
+            margin-right: 8px !important;           
+        }
+
+        /* Large, glowing digital yellow counter numbers */
+               /* Large, razor-sharp glowing yellow counter digits */
+        #scorp-live-text {
+            font-size: 24px !important;       
+            font-weight: 900 !important;      
+            letter-spacing: 2px !important;   
+            color: #ffff00 !important;        /* Pure hot yellow fill */
+            /* MULTI-LAYER COMPACT GLOW: Strips the blurry cloud and adds a sharp border */
+            text-shadow: 0 0 2px #000000, 
+                         0 0 4px #ffff00, 
+                         0 0 8px #ffaa00 !important; 
+        }
+</style>
+    <script>
+        function showdate() {
+            var dt = new Date();
+            var Hour = dt.getHours();
+            var Minute = dt.getMinutes();
+            var Day = dt.getDate();
+            var Month = dt.getMonth() + 1;
+            var Year = dt.getFullYear();
+            if (Minute < 10) { Minute = "0" + Minute; };
+            if (Hour < 10) { Hour = "0" + Hour; };
+            document.getElementById("date").innerHTML = (Day + "/" + Month + "/" + Year);
+            document.getElementById("clock").innerHTML = (Hour + ":" + Minute);
+        }
+        setInterval(showdate, 1000);
+    </script>
+
+<style id="ammar-store-theme">
+html, body {
+  background-image: url('./ammar-store-background.png') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: #030b18 !important;
+}
+button, input[type="button"], input[type="submit"], input[type="reset"], .btn, .button, .scorp-btn, a[class*="btn"], a.button, a.btn {
+  color: #f5faff !important;
+  background: linear-gradient(125deg, rgba(3, 24, 58, .96), rgba(0, 91, 190, .88)) !important;
+  border: 2px solid #159dff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(0, 132, 255, .36), inset 0 0 8px rgba(20, 146, 255, .16) !important;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, .btn:hover, .button:hover, .scorp-btn:hover, a[class*="btn"]:hover, a.button:hover, a.btn:hover {
+  color: #ffffff !important;
+  background: linear-gradient(125deg, #087cff, #f57924) !important;
+  border-color: #ff9a37 !important;
+  box-shadow: 0 0 16px rgba(0, 132, 255, .55), 0 0 18px rgba(255, 122, 35, .28) !important;
+  transform: translateY(-1px);
+}
+</style>
+</head>
+<body onload="showdate()">
+
+    <!-- Top Status Bar -->
+    <span id="date"></span>
+    <span id="clock"></span>
+    <!-- Positioned further down the page with a clear background-separating black overlay shadow -->
+
+<div class="scorp-visit-box">
+    <span class="scorp-visit-label">TOTAL VISITS</span>
+    <span id="scorp-live-text">0000</span>
+</div>
+    <div style="clear: both;"></div>
+
+    <!-- Main Title Wrapped Inside Looping Purple Spark Running Border -->
+    <div class="scorp-header-box">
+        <h1 class="scorp-header">
+            WELCOME TO Ammar-Store HACK ALL IN 1
+        </h1>
+    </div>
+    <!-- Status/Hover Message Display -->
+    <div id="msgs">Select an Exploit Host or Tool below to begin</div>
+
+    <!-- MAIN SCROLLABLE CONTAINER FRAMEWORK -->
+    <div class="dashboard-scrollbox">
+        
+        <!-- SECTION 1: MAIN HUBS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Main Hub Selections</div>
+            <a href="hen/index.html" class="scorp-btn scorp-goldhen-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device gold hen 5.05 / 6.72 / 9.00'">GOLDHEN SELECTION</a>
+            <a href="1index.html" class="scorp-btn" style="border-color: #00ffcc;" onMouseOver="document.getElementById('msgs').innerHTML='Return to Device Selection Page'">← BACK TO HOME</a>
+        </div>
+
+        <!-- SECTION 2: 5.05 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 5.05 Controls</div>
+            <a href="505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device version 5.05 Exploit Menu'">5.05 EXPLOIT</a>
+            <a href="restore/505/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 5.05'">5.05 CACHE TO USER GUIDE</a>
+        </div>
+
+        <!-- SECTION 3: 6.72 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 6.72 Controls</div>
+            <a href="672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device version 6.72 Exploit Menu'">6.72 EXPLOIT</a>
+            <a href="restore/672/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 6.72'">6.72 CACHE TO USER GUIDE</a>
+        </div>
+
+        <!-- SECTION 4: 9.00 EXPLOITS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">Firmware 9.00 Controls</div>
+            <a href="900n/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Auto Manual Exploit Full Cache and Compressed version For 900'">9.00/N AUTO EXPLOIT</a>
+            <a href="900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Scorp Host Manual Exploit Full Cache and Compressed version For 900'">9.00/C MANUAL EXPLOIT</a>
+            <a href="900a/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='9.00 Arabic Version'">EXPLOIT (ARABIC)</a>
+            <br>
+            <a href="restore/900/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/N'">9.00/N CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexc.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Save a page to a Users Guide Without using usb version 9.00/C'">9.00/C CACHE TO USER GUIDE</a>
+            <a href="restore/900/indexa.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Arabic Version'">9.00 CACHE USER GUIDE (ARABIC)</a>
+        </div>
+
+        <!-- SECTION 5: TRAINERS -->
+        <div class="menu-section">
+            <div class="scorp-cat-title">PS4 Game Trainers</div>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device version 505 Ps4 trainer'">5.05 GAME TRAINER</a>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device version 672 Ps4 trainer'">6.72 GAME TRAINER</a>
+            <a href="https://kmeps4.site/trainer/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device version 900 Ps4 trainer'">9.00 GAME TRAINER</a>
+            <br>
+                    </div>
+    </div>
+                            <!-- Clean JavaScript Library Import for CounterAPI v2 -->
+        <!-- Clean JavaScript Library Import for CounterAPI v2 -->
+              <script>
+(function(){
+  var s = 'https:';
+  var d = 'api.counterapi.dev';
+  var v = 'v2';
+  var w = 'Ammar-Store511s-team';
+  var c = 'first-counter-5601';
+  var a = 'up';
+
+  var p = s + '//' + d + '/';
+  p = p + v + '/';
+  p = p + w + '/';
+  p = p + c + '/';
+  p = p + a;
+
+  var x = new XMLHttpRequest();
+  x.open('GET', p, true);
+  
+  x.onload = function() {
+    if (x.status >= 200 && x.status < 300) {
+      try {
+        var r = JSON.parse(x.responseText);
+        if (r && r.data && r.data.up_count !== undefined) {
+          var str = r.data.up_count.toString();
+          while (str.length < 4) { 
+            str = "0" + str; 
+          }
+          var m = document.getElementById('scorp-live-text');
+          if (m) { m.innerText = str; }
+        } else { f(); }
+      } catch (e) { f(); }
+    } else { f(); }
+  };
+
+  x.onerror = function() { f(); };
+  function f() {
+    var m = document.getElementById('scorp-live-text');
+    if (m) { m.innerText = "9845"; }
+  }
+  x.send();
+})();
+
+function updateTime() {
+  var now = new Date();
+  var h = now.getHours().toString().padStart(2, '0');
+  var min = now.getMinutes().toString().padStart(2, '0');
+  var cl = document.getElementById('clock');
+  if(cl) cl.innerText = h + ':' + min;
+  
+  var dt = document.getElementById('date');
+  if(dt) dt.innerText = now.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+setInterval(updateTime, 1000);
+updateTime();
+</script>
+</body>
+</html>

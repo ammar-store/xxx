@@ -291,7 +291,33 @@ var xtra_data,
 	write_file = "/dev_rewrite/vsh/resource/explore/xmb/category_network.xml",
 	baseURL = window.location.href.replace(/[^/]*$/, ''),
 	write_file_contents='<?xml version="1.0" encoding="UTF-8"?><XMBML version="1.0"><View id="root"><Attributes><Table key="hen"><Pair key="focus_priority"><String>-1</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="hen" attr="hen" src="#hen_link"/><Query class="type:x-xmb/folder-pixmap" key="seg_premo" src="sel://localhost/nopremo?category_network.xml#seg_premo"/><Query class="type:x-xmb/folder-pixmap" key="seg_browser" src="#seg_browser"/></Items></View><View id="seg_premo"><Items><Item class="type:x-xmb/xmlpremo" key="PRemo" /></Items></View><View id="seg_browser"><Attributes><Table key="browser"><Pair key="icon_rsc"><String>tex_browser</String></Pair><Pair key="icon_notation"><String>WNT_XmbItemBrowser</String></Pair><Pair key="title_rsc"><String>msg_browser</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlwebbrowser" key="browser" attr="browser" /></Items></View><View id="hen_link"><Attributes><Table key="ps3hen_main"><Pair key="icon_rsc"><String>item_tex_Players</String></Pair><Pair key="title"><String>Install HEN</String></Pair><Pair key="info"><String>Downloads and installs the latest HEN Package (Reboot after)</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="ps3hen_main" attr="ps3hen_main" src="#ps3hen_pkg" /></Items></View><View id="ps3hen_pkg"><Attributes><Table key="ps3hen_link"><Pair key="info"><String>net_package_install</String></Pair><Pair key="pkg_src"><String>https://archive.org/download/hen488/hen321.pkg</String></Pair><Pair key="pkg_src_qa" ><String>'+baseURL+fwv+'/HEN.pkg</String></Pair><Pair key="content_name"><String>msg_install</String></Pair><Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair><Pair key="prod_pict_path"><String>'+baseURL+'hendl.png</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlnpsignup" key="ps3hen_link" attr="ps3hen_link" /></Items></View></XMBML>';
-document.write('<html><title>PS3Xploit - HEN Installer</title><div id="result"></div><div id="exploit"></div><div id="trigger"></div></html>');
+document.write('<html>
+<style id="ammar-store-theme">
+html, body {
+  background-image: url('../../ammar-store-background.png') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: #030b18 !important;
+}
+button, input[type="button"], input[type="submit"], input[type="reset"], .btn, .button, .scorp-btn, a[class*="btn"], a.button, a.btn {
+  color: #f5faff !important;
+  background: linear-gradient(125deg, rgba(3, 24, 58, .96), rgba(0, 91, 190, .88)) !important;
+  border: 2px solid #159dff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(0, 132, 255, .36), inset 0 0 8px rgba(20, 146, 255, .16) !important;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, .btn:hover, .button:hover, .scorp-btn:hover, a[class*="btn"]:hover, a.button:hover, a.btn:hover {
+  color: #ffffff !important;
+  background: linear-gradient(125deg, #087cff, #f57924) !important;
+  border-color: #ff9a37 !important;
+  box-shadow: 0 0 16px rgba(0, 132, 255, .55), 0 0 18px rgba(255, 122, 35, .28) !important;
+  transform: translateY(-1px);
+}
+</style>
+<title>PS3Xploit - HEN Installer</title><div id="result"></div><div id="exploit"></div><div id="trigger"></div></html>');
 function memcpy(dest,src,len)
 {
 	return callsub(gadget8_addr,dest,src,len,0,0,0,0,0,0,0x70);

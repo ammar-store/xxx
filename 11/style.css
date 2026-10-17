@@ -23,3 +23,7 @@ a {
 #console {
     display: none;
 }
+/* Ammar-Store visual theme */
+html, body { background-image: url("../ammar-store-background.png") !important; background-position: center center !important; background-size: cover !important; background-repeat: no-repeat !important; background-attachment: fixed !important; background-color: #030b18 !important; }
+button, input[type="button"], input[type="submit"], input[type="reset"], .btn, .button, .scorp-btn, a[class*="btn"], a.button, a.btn { color: #f5faff !important; background: linear-gradient(125deg, rgba(3,24,58,.96), rgba(0,91,190,.88)) !important; border: 2px solid #159dff !important; border-radius: 8px !important; box-shadow: 0 0 10px rgba(0,132,255,.36), inset 0 0 8px rgba(20,146,255,.16) !important; }
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, .btn:hover, .button:hover, .scorp-btn:hover, a[class*="btn"]:hover, a.button:hover, a.btn:hover { color: #fff !important; background: linear-gradient(125deg, #087cff, #f57924) !important; border-color: #ff9a37 !important; box-shadow: 0 0 16px rgba(0,132,255,.55), 0 0 18px rgba(255,122,35,.28) !important; }

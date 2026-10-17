@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ammar-Store Hack All In 1</title>
+    <style>
+        html, body {
+            background-image: url('img.jpg');
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #121214;
+            color: white;
+            text-align: center;
+            margin: 0px;
+            padding: 0px;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 1.5vh 0;
+        }
+        
+        .status-top-bar {
+            width: 95%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #date {
+            font-weight: bold;
+            font-size: 2.2vh;
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+        }
+
+        #clock {
+            font-weight: bold;
+            font-size: 2.2vh;
+            color: #00f0ff;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+        }
+        
+        .scorp-header-box {
+            position: relative;
+            margin-top: 8vh;
+            margin-bottom: 1vh;
+            padding: 12px 30px;
+            background: rgba(10, 15, 20, 0.8);
+            border-radius: 10px;
+            display: inline-block;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-image: linear-gradient(rgba(10,15,20,0.9), rgba(10,15,20,0.9)), 
+                              linear-gradient(90deg, #00f0ff, #00a8ff, transparent, #00f0ff);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            background-size: 200% 100%;
+            animation: runningSpark 3s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+        }
+
+        .scorp-header {
+            font-size: 3.8vh;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            margin: 0;
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00a8ff;
+        }
+
+        @keyframes runningSpark {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 200% 0%; }
+        }
+
+        #msgs {
+            font-size: 2.6vh;
+            font-weight: bold;
+            color: #00ffcc;
+            margin: 1vh 0;
+            min-height: 4vh;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+        }
+
+        #all {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 0.5vh 0;
+        }
+
+        .scorp-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: rgba(10, 15, 20, 0.85);
+            color: #ffffff;
+            font-size: 2.2vh;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 1.5vh 3vh;
+            margin: 1vh;
+            border: 2px solid #00f0ff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3), inset 0 0 10px rgba(0, 240, 255, 0.2);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 160px;
+        }
+
+        .scorp-btn:hover {
+            background: #00f0ff;
+            color: #000000;
+            box-shadow: 0 0 20px #00f0ff, 0 0 40px #00a8ff;
+            text-shadow: none;
+            transform: translateY(-2px);
+        }
+
+        .credit-link-wrapper {
+            margin: 0.5vh 0 1.5vh 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .credit-link-wrapper h1 {
+            font-size: 2.2vh;
+            font-family: sans-serif;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* FIXED: Styled to perfectly replicate the header typography and neon glow effects */
+        .scorp-credits {
+            font-size: 3.8vh; 
+            margin-top: 1vh;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #fff;
+            text-shadow: 0 0 10px #00f0ff, 0 0 20px #00a8ff;
+        }
+        /* Centered Circular Branding Emblem Style */
+.scorp-main-logo {
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: -6vh; /* Safely balances vertical scaling above the header container */
+    display: block;
+    width: 100%;
+}
+.scorp-main-logo img {
+    height: 105px;       
+    width: 105px;        /* Forces perfect circle layout dimensions */
+    object-fit: cover;   
+    border-radius: 50%;  
+    border: 3px solid #00f0ff; /* Neon cyan border ring matching your buttons */
+    filter: drop-shadow(0px 0px 12px #00f0ff); /* Blue aura glow */
+}
+        /* --- Cyberpunk Contact Card Style --- */
+/* --- Ultra Compact Developer Card --- */
+/* --- Ultra Compact Pinned Sidebar Fix --- */
+.scorp-dev-card {
+    position: fixed;
+    bottom: 2vh;     /* Keeps it neatly pinned down */
+    right: 1.5vw;    /* Pushes it safely against the right edge */
+    background: rgba(10, 15, 20, 0.9);
+    border: 2px solid #00f0ff;
+    border-radius: 8px;
+    padding: 1vh 1.5vh;
+    width: 230px;    /* Narrow fixed width to save screen space */
+    max-height: 45vh; /* STRICT LIMIT: Stops the box from growing vertically */
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.3);
+    z-index: 9999;
+    box-sizing: border-box;
+    overflow: hidden; /* Cuts off any giant hidden blank sections */
+}
+
+.scorp-dev-badge {
+    background-color: #00f0ff;
+    color: #000000;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 1.3vh;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 0.5vh;
+}
+
+.scorp-dev-title {
+    color: #ffffff;
+    font-size: 1.5vh;
+    font-weight: bold;
+    margin: 0.2vh 0;
+}
+
+.scorp-dev-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.2vh 0;
+    text-align: left;
+}
+
+.scorp-dev-list li {
+    font-size: 1.3vh;
+    color: #e0e0e0;
+    margin-bottom: 0.2vh;
+    line-height: 1.2;
+}
+
+/* Force the QR image wrapper block to be small and tight */
+.scorp-dev-card img {
+    width: 65px !important;
+    height: 65px !important;
+    display: block;
+    margin: 0.4vh auto 0 auto;
+}
+
+    </style>
+    <script>
+        function showdate() {
+            var dt = new Date();
+            var Hour = dt.getHours();
+            var Minute = dt.getMinutes();
+            var Day = dt.getDate();
+            var Month = dt.getMonth() + 1;
+            var Year = dt.getFullYear();
+            if (Minute < 10) { Minute = "0" + Minute; };
+            if (Hour < 10) { Hour = "0" + Hour; };
+            document.getElementById("date").innerHTML = (Day + "/" + Month + "/" + Year);
+            document.getElementById("clock").innerHTML = (Hour + ":" + Minute);
+        }
+        setInterval(showdate, 1000);
+    </script>
+
+<style id="ammar-store-theme">
+html, body {
+  background-image: url('./ammar-store-background.png') !important;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: #030b18 !important;
+}
+button, input[type="button"], input[type="submit"], input[type="reset"], .btn, .button, .scorp-btn, a[class*="btn"], a.button, a.btn {
+  color: #f5faff !important;
+  background: linear-gradient(125deg, rgba(3, 24, 58, .96), rgba(0, 91, 190, .88)) !important;
+  border: 2px solid #159dff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 10px rgba(0, 132, 255, .36), inset 0 0 8px rgba(20, 146, 255, .16) !important;
+  transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease !important;
+}
+button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover, .btn:hover, .button:hover, .scorp-btn:hover, a[class*="btn"]:hover, a.button:hover, a.btn:hover {
+  color: #ffffff !important;
+  background: linear-gradient(125deg, #087cff, #f57924) !important;
+  border-color: #ff9a37 !important;
+  box-shadow: 0 0 16px rgba(0, 132, 255, .55), 0 0 18px rgba(255, 122, 35, .28) !important;
+  transform: translateY(-1px);
+}
+</style>
+</head>
+<body onload="showdate()">
+
+    <div class="status-top-bar">
+        <span id="date"></span>
+        <span id="clock"></span>
+    </div>
+<div style="position: absolute; top: 11.5vh; left: 5.0%; text-align: left; pointer-events: none; margin: 0; padding: 0;">
+    <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 3.5vh; font-weight: 900; letter-spacing: 0.45em; color: #fff; text-transform: uppercase; margin: 0; text-shadow: 0 0 10px #00f0ff, 0 0 20px #00a8ff; opacity: 0.95;">
+        PS5 J4ILBR3AK
+    </h2>
+</div>
+<!-- ONLY KEEP ONE HEADER BOX -->
+    <div class="scorp-header-box">
+        <h1 class="scorp-header">
+            WELCOME TO Ammar-Store HACK ALL IN 1
+        </h1>
+    </div>
+
+    <div id="msgs">Select an option below to begin</div>
+
+    <div id="all">
+        
+        <div class="button-row">
+            <a href="ps3/auto490/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device PS3'">
+                PS3 DEVICE
+            </a>
+            <a href="2index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device PS4'">
+                PS4 DEVICE
+            </a>
+            <a href="ps5/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device PS5'">
+                PS5 DEVICE FW 1.00:5.00
+            </a>
+            <a href="https://scorpion511.github.io/PS5-SCORPION/" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='Darkoona page device PS5 FIRMWARE 7.00 TO 13.60'">
+    PS5 DEVICE FIRMWARE 7.00 TO 13.60
+</a>
+        </div>
+        
+        <div class="button-row">
+            <a href="https://scorpion511.github.io/scorp/900c/index.html" class="scorp-btn" onMouseOver="document.getElementById('msgs').innerHTML='A set of tools used PlayStation devices'">
+                PS TOOLS
+            </a>
+        </div>
+        
+        <div class="credit-link-wrapper">
+            <h1>
+               <a href="https://scorpion511.github.io/Ahmed.Essam/hen/index.html" style="color: red; text-decoration: none; border-bottom: 1px dashed red; padding-bottom: 1px;"
+                  onMouseOver="document.getElementById('msgs').innerHTML='FIRMWARE 9.00 Auto EXPLOIT WITHOUT USB'">
+                    Ahmed Essam
+                </a>
+            </h1>
+        </div>
+<div class="button-row">
+            <a href="#" class="scorp-btn" 
+               onMouseOver="document.getElementById('msgs').innerHTML='Install FPKGi Store directly onto your PS4 dashboard!'"
+               onclick="installFPKGiStore(event)">
+                PS4 THEMES
+            </a>
+
+            <a href="https://pkg-zone.com" class="scorp-btn" 
+               onMouseOver="document.getElementById('msgs').innerHTML='The ultimate community homebrew and custom theme database!'">
+                PKG-ZONE SITE
+            </a>
+  <!-- Cyberpunk Contact & Profile Card Section - Locked in Bottom Left corner to never cover main buttons -->
+<div class="scorp-dev-card" onMouseOver="document.getElementById('msgs').innerHTML='Need console support? Contact the Hacking Developer directly.'" style="position: fixed; bottom: 15px; left: 15px; width: 250px; background: rgba(0, 10, 20, 0.85); border: 2px solid #00f0ff; border-radius: 12px; box-shadow: 0 0 15px rgba(0, 240, 255, 0.3); padding: 12px; text-align: center; z-index: 9999; box-sizing: border-box;">
+    
+    <!-- Unified Font & Increased English Sizes to match the Arabic style -->
+    <span class="scorp-dev-badge" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.6vh; font-weight: bold; display: inline-block; margin-bottom: 5px;">⚡ Hacking Developer</span>
+    <div class="scorp-dev-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.9vh; font-weight: 900; color: #00f0ff; text-transform: uppercase; margin-bottom: 1.2vh;">Modification & Setup Services</div>
+    
+    <ul class="scorp-dev-list" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1.7vh; line-height: 1.5; color: #fff; padding-left: 15px; margin: 0 0 1.5vh 0; text-align: left; list-style-type: disc;">
+        <li style="margin-bottom: 0.6vh;">🔓 <strong>Device Jailbreaking:</strong> Safe console modifications and framework alterations.</li>
+        <li>🎮 <strong>PS4 &amp; PS5 Gaming:</strong> Direct storage setups and custom game installations.</li>
+    </ul>
+
+    <!-- Arabic Identification Note (Perfectly original layout specs) -->
+    <div style="margin-top: 1.2vh; margin-bottom: 1.5vh; border-top: 1px dashed rgba(0, 240, 255, 0.3); padding-top: 1.2vh; direction: rtl; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <p style="color: #00ffcc; font-size: 2vh; font-weight: bold; margin: 0; text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);">
+            مطور لتهكير اجهزة بلايستيشن 5 و 4 و تحميل كافة الالعاب
+        </p>
+    </div>
+</div>
+
+        </div>
+
+    <script>
+    function installFPKGiStore(e) {
+        e.preventDefault(); 
+        
+        // Assembling the file download string safely to bypass auto-shorteners
+        var domain = "https://pkg-zone.com";
+        var path = "/download/PKGI13337";
+        var pkgUrl = domain + path;
+        
+        var payload = { type: "direct", url: pkgUrl };
+
+        // Assembling the network IP address safely to bypass auto-shorteners
+        var localIp = "http://127.0.0.1";
+        var localPort = ":12800/api/install";
+        var targetEndpoint = localIp + localPort;
+
+        fetch(targetEndpoint, {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        })
+        .then(response => {
+            document.getElementById('msgs').innerHTML = 'Successfully queued! Check your PS4 Dashboard Notifications.';
+        })
+        .catch(err => {
+            document.getElementById('msgs').innerHTML = 'Error! Ensure GoldHEN or Remote Package Installer is turned ON.';
+        });
+    }
+    </script>
+
+</div>
+
+<div class="scorp-credits">
+    Theme Customized By Darkoona | Original Author: Ahmed Essam
+</div>
+
+<!-- Clean, unified container with Neon Yellow & Black Fire Glow -->
+<div style="margin: 1.5vh 0; text-align: center; width: 100%; position: relative; z-index: 10;">
+    <p style="margin: 0 0 0.5vh 0; font-size: 1.8vh; color: #00f0ff; font-weight: bold; text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); letter-spacing: 1px; text-transform: uppercase;">
+        TOTAL SITE VISITS
+    </p>
+    <!-- Yellow text with multi-layered black and dark-orange shadows for the burning smoke effect -->
+    <span id="scorp-live-text" style="font-size: 2.8vh; color: #ffff00; font-weight: 900; letter-spacing: 1px; text-shadow: 0 0 4px #000, 0 -2px 6px #ffcc00, 2px -4px 10px #ff3300, -2px -8px 16px #000, 0 -12px 22px #000;">0000</span>
+</div>
+<!-- Safe Built V2 Counter Script Configuration -->
+    <!-- Safe Built V2 Counter Script Configuration -->
+    <script>
+        (function() {
+            var part1 = 'https://';
+            var part2 = 'api.counterapi';
+            var part3 = '.dev/v2/';
+            var part4 = 'Ammar-Store511';
+            var part5 = '/up/up';
+            
+            var fullUrl = part1 + part2 + part3 + part4 + part5;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', fullUrl, true);
+            
+            // 🔑 WRITE YOUR API KEY TOKEN ON THE LINE BELOW
+            xhr.setRequestHeader('Authorization', 'Bearer ut_YtrojkMWg4YDkqfco51uTl7WN8uVTR3c6JK2Bvdv');
+            
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    try {
+                        var response = JSON.parse(xhr.responseText);
+                        if (response && response.data && response.data.count !== undefined) {
+                            var countStr = response.data.count.toString();
+                            while (countStr.length < 4) { 
+                                countStr = "0" + countStr; 
+                            }
+                            var mainCounter = document.getElementById('scorp-live-text');
+                            if (mainCounter) {
+                                mainCounter.innerText = countStr;
+                            }
+                        } else {
+                            handleFallback();
+                        }
+                    } catch (e) {
+                        handleFallback();
+                    }
+                } else {
+                    handleFallback();
+                }
+            };
+
+            xhr.onerror = function() {
+                handleFallback();
+            };
+
+            function handleFallback() {
+                var mainCounter = document.getElementById('scorp-live-text');
+                if (mainCounter) {
+                    mainCounter.innerText = "9887";
+                }
+            }
+
+            xhr.send();
+        })();
+    </script>
+
+
+</body>
+</html>

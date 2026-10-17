@@ -10,3 +10,6 @@ This multi-console platform architecture, user interface design framework, selec
 
 * **Full Ownership Protection:** For comprehensive terms regarding deployment permissions, brand architecture protections, repackaging restrictions, and third-party utility component tracking statements, please review our official **[LICENSE](./LICENSE)** charter file directly.
 * **Plagiarism Warning:** Unauthorized re-hosting, cloning, or distribution of this custom portal framework under alternative names or altered copyright wrappers constitutes a direct breach of system control terms.
+
+## Local visual customization
+The background artwork and blue/orange button theme in this fork were customized by Darkoona. Original upstream author credits and license notices are retained.
